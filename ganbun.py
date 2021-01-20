@@ -2,6 +2,7 @@ from thia import thiali
 import jamotools
 def input(s):
   _s = s.split('-')
+  back = []
   for item in _s:
     chuim = ["", "m", "n", "ng", "p", "b", "t", "k", "g", "ph", "th", "kh", "ch", "j", "chh", "s", "h", "l"]
     chuim_ganbun = ["ㅇ", "ㅁ", "ㄴ", "ㄸ", "ㅂ", "ㅂ", "ㄷ", "ㄱ", "ㄱ", "ㅍ", "ㅌ", "ㅋ", "ㅈ", "ㅅ", "ㅊ", "ㅅ", "ㅎ", "ㄹ"]
@@ -26,14 +27,19 @@ def input(s):
     if chiap_booim != "":
       if chiap_hophak == "" and chiap_boe == "" and (chiap_booim == "m" or chiap_booim == "ng"):
         result.append("ᅳ")
-      result.append(booim_ganbun[booim.index(chiap_booim)])
+        pass
+      if chiap_booim == "o" and chiap_boe != "":
+        result.append("ㅗ")
+      else:
+        result.append(booim_ganbun[booim.index(chiap_booim)])
     if chiap_boe != "":
       if chiap_hophak == "" and chiap_booim == "":
         result.append("ᅳ")
-      result.append(boe_ganbun[boe.index(chiap_boe)])
+      else:
+        result.append(boe_ganbun[boe.index(chiap_boe)])
     if chiap_chuim == "b" or chiap_chuim == "g" or chiap_chuim == "j":
       result.append("\u3099")
     s = jamotools.join_jamos(result)
-    print(result, s, hau[chiap_sianntiau])
-
-input("joe5")
+    back.append(s+hau[chiap_sianntiau])
+  print(back)
+input("ông-lâi-so͘")
