@@ -6,6 +6,7 @@ def oann(s):
   try:
     hoo = int(s[-1])
     s = s.replace("oo", "o͘")
+    s = s.replace("nn", "ⁿ")
 
     return s.lower()[0:-1], hoo
   except:
@@ -39,7 +40,7 @@ def oann(s):
   elif choo == 7:
     s = s.replace(imtiau[position], imtiau[42])
   s = s.replace("oo", "o͘")
-
+  s = s.replace("nn", "ⁿ")
   return s.lower(), tiau
   
 def getMax(s):

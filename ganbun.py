@@ -16,6 +16,7 @@ def input(s):
       boe = ["p", "t", "k", "h", "m", "n", "ng", "ⁿ", "ⁿh"]
       boe_ganbun = ["ㅂ", "ㄷ", "ㄱ", "ㅅ", "ㅁ", "ㄴ", "ㅇ", "\u309C", "ㅆ"]
       hau = ["₀","₁","₂","₃","₄","₅","₆","₇"]
+      print(thiali("chiann"))
       (chiap_chuim, chiap_hophak, chiap_booim, chiap_boe, chiap_sianntiau) = thiali(item)
 
       result = []
@@ -45,4 +46,4 @@ def input(s):
       back.append(s+hau[chiap_sianntiau])
   return ''.join(back)
 
-print(input("Thoo5"))
+print(input("chiann"))
