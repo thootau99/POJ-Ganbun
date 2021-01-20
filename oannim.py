@@ -1,13 +1,14 @@
 import math
+import re
 imtiau = ["a", "á", "à", "â", "ā", "a̍", "i", "í", "ì", "î", "ī", "i̍", "u", "ú", "ù", "û", "ū", "u̍", "e", "é", "è", "ê", "ē", "e̍", "o", "ó", "ò", "ô", "ō", "o̍", "o͘", "ó͘", "ò͘", "ô͘", "ō͘", "o̍͘", "n", "ń", "ǹ", "n̂", "n̄", "n̍", "m", "ḿ", "m̀", "m̂", "m̄", "m̍"] 
 boe = {"p", "t", "k", "h"}
-hau = [1,2,3,5,7,8]
+hau = [1,2,3,5,7,8,9]
 def oann(s):
   try:
     hoo = int(s[-1])
     s = s.lower()
     s = s.replace("oo", "o͘")
-    s = s.replace("nn", "ⁿ")
+    s = re.sub(r'nn$', "ⁿ", s)
 
     return s.lower()[0:-1], hoo
   except:
@@ -43,7 +44,7 @@ def oann(s):
   elif choo == 7:
     s = s.replace(imtiau[position], imtiau[42])
   s = s.replace("oo", "o͘")
-  s = s.replace("nn", "ⁿ")
+  s = re.sub(r'nn$', "ⁿ", s)
   return s.lower(), tiau
   
 def getMax(s):
