@@ -5,6 +5,7 @@ hau = [1,2,3,5,7,8]
 def oann(s):
   try:
     hoo = int(s[-1])
+    s = s.lower()
     s = s.replace("oo", "o͘")
     s = s.replace("nn", "ⁿ")
 
@@ -14,6 +15,8 @@ def oann(s):
   global imtiau
   global hau
   resultarr = []
+  s = s.lower()
+
   for index, item in enumerate(imtiau):
     if item in s:
       resultarr.append((hau[index%6], index))
