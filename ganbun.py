@@ -19,7 +19,7 @@ def input(s):
       hau = ["₀","₁","₂","₃","₄","₅","₆","₇", "₈", "₉"]
       # print(thiali("chiann"))
       (chiap_chuim, chiap_hophak, chiap_booim, chiap_boe, chiap_sianntiau) = thiali(item)
-      print(chiap_chuim, chiap_hophak, chiap_booim, chiap_boe, chiap_sianntiau)
+      # print(chiap_chuim, chiap_hophak, chiap_booim, chiap_boe, chiap_sianntiau)
       result = []
       test  = '\u3099'
       result.append(chuim_ganbun[chuim.index(chiap_chuim)])
@@ -57,4 +57,4 @@ def input(s):
         back.append(item)
   return ''.join(back)
 
-print(input("thinn"))
+# print(input("thiann"))
