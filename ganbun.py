@@ -46,4 +46,4 @@ def input(s):
       back.append(s+hau[chiap_sianntiau])
   return ''.join(back)
 
-print(input("SOANN1 BE2 LIU1"))
+print(input("tâi-lâm kioⁿ iá-bē hó"))
