@@ -5,7 +5,9 @@ hau = [1,2,3,5,7,8]
 def oann(s):
   try:
     hoo = int(s[-1])
-    return s[0:-1], hoo
+    s = s.replace("oo", "o͘")
+
+    return s.lower()[0:-1], hoo
   except:
     pass
   global imtiau
@@ -36,7 +38,9 @@ def oann(s):
     s = s.replace(imtiau[position], imtiau[36])
   elif choo == 7:
     s = s.replace(imtiau[position], imtiau[42])
-  return s, tiau
+  s = s.replace("oo", "o͘")
+
+  return s.lower(), tiau
   
 def getMax(s):
   max = 0
