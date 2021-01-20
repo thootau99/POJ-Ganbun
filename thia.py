@@ -3,7 +3,7 @@ def thiali(s):
   chuim = ["m", "n", "ng", "p", "b", "t", "k", "g", "ph", "th", "kh", "ch", "j", "chh", "s", "h", "l"]
   booim = ["i", "iⁿ", "u", "uⁿ", "e", "eⁿ", "o", "o͘", "oⁿ", "a", "aⁿ", "m", "ng"]
   hophakbooim = ["ai", "au", "ia", "iu", "io", "ioo","oa", "oe", "ui", "iau", "oai"]
-  imchiap = ["a","a","aⁿ","aⁿ","aⁿh","ah","ah","ahⁿ","ahⁿ","ai","ai","aiⁿ","aiⁿ","ak","ak","am","am","an","an","ang","ang","ap","ap","at","at","au","au","auh","auh","e","e","eⁿ","eⁿ","eh","eh","ehⁿ","ehⁿ","ek","ek","eng","eng", "eⁿh","i","i","iⁿ","iⁿ","ia","ia","iaⁿ","iaⁿ","iah","iah","iahⁿ","iahⁿ","iak","iak","iam","iam","ian","ian","iang","iang","iap","iap","iat","iat","iaⁿh","iau","iau","iauⁿ","iauⁿ","iauh","iauh","ih","ih","im","im","in","in","io","io","ioh","ioh","iok","iok","iong","iong","ip","ip","it","it","iu","iu","iuⁿ","iuⁿ","iuh","iuhⁿ", "ioⁿ", "io", "iohⁿ","m","m","mh","mh","ng","ng","ngh","ngh","o","o","oⁿ","oⁿ","o͘","o͘","oa","oa","oaⁿ","oaⁿ","oah","oah","oai","oⁿh","oai","oaiⁿ","oaiⁿ","oan","oan","oang","oang","oat","oat","oe","oe","oeh","oeh","oh","oh","o͘h","o͘h","ohⁿ","ohⁿ","ok","ok","om","om","ong","ong","u","u","uh","uh","ui","ui", "uih","un","un","ut","ut", "uiⁿ", "uiⁿh"]
+  imchiap = ["a","a","aⁿ","aⁿ","aⁿh","ah","ah","ahⁿ","ahⁿ","ai","ai","aiⁿ","aiⁿ","ak","ak","am","am","an","an","ang","ang","ap","ap","at","at","au","au","auh","auh","e","e","eⁿ","eⁿ","eh","eh","ehⁿ","ehⁿ","ek","ek","eng","eng", "eⁿh","i","i","iⁿ","iⁿ","ia","ia","iaⁿ","iaⁿ","iah","iah","iahⁿ","iahⁿ","iak","iak","iam","iam","ian","ian","iang","iang","iap","iap","iat","iat","iaⁿh","iau","iau","iauⁿ","iauⁿ","iauh","iauh","ih","ih","im","im","in","in","io","io","ioh","ioh","iok","iok","iong","iong","ip","ip","it","it","iu","iu","iuⁿ","iuⁿ","iuh","iuhⁿ", "ioⁿ", "io", "iohⁿ","m","m","mh","mh","ng","ng","ngh","ngh","o","o","oⁿ","oⁿ","o͘","o͘","oa","oa","oaⁿ","oaⁿ","oah","oah","oai","oⁿh","oai","oaiⁿ","oaiⁿ","oan","oan","oang","oang","oat","oat","oe","oe","oeh","oeh","oh","oh","o͘h","o͘h","ohⁿ","ohⁿ","ok","ok","op","om","om","ong","ong","u","u","uh","uh","ui","ui", "uih","un","un","ut","ut", "uiⁿ", "uiⁿh"]
   boe = ["p", "t", "k", "h", "m", "n", "ng", "ⁿ", "ⁿh"]
   process = oann(s)
   # print(process)
@@ -18,7 +18,6 @@ def thiali(s):
   finish = False
   for i in chuim:
     s = ina.split(i, 1)
-    # print(s,i)
     if len(s) == 2:
       if s[0] == "":
 
