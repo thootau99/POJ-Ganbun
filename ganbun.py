@@ -5,7 +5,7 @@ def input(s):
   _t = s.split(' ')
   back = []
   for _t_item in _t:
-    _s = re.split(r'--|-|‑|([\u2E80-\u2FDF\u3005-\u3007\u3400-\u4DBF\u4E00-\u9FFF\uF900-\uFAFF\U00020000-\U0002EBEF]+|\?|\!|\.|\,|，|。)', _t_item)
+    _s = re.split(r'--|-|‑|([\u2E80-\u2FDF\u3005-\u3007\u3400-\u4DBF\u4E00-\u9FFF\uF900-\uFAFF\U00020000-\U0002EBEF]+)|\?|\!|\.|\,|，|。', _t_item)
     for item in _s:
       chuim = ["", "m", "n", "ng", "p", "b", "t", "k", "g", "ph", "th", "kh", "ch", "j", "chh", "s", "h", "l"]
       chuim_ganbun = ["ㅇ", "ㅁ", "ㄴ", "ㄸ", "ㅂ", "ㅂ", "ㄷ", "ㄱ", "ㄱ", "ㅍ", "ㅌ", "ㅋ", "ㅈ", "ㅅ", "ㅊ", "ㅅ", "ㅎ", "ㄹ"]
@@ -53,8 +53,9 @@ def input(s):
         else:
           back.append(__s+hau[chiap_sianntiau])
       else:
-        print(item)
-        back.append(item)
+        if item != None:
+          print(item)
+          back.append(item)
   return ''.join(back)
 
-print(input("我早日無thiann。"))
+print(input("kám--kak"))

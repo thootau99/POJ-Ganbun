@@ -16,8 +16,10 @@ def oann(s):
   global imtiau
   global hau
   resultarr = []
-  s = s.lower()
-
+  try:
+    s = s.lower()
+  except:
+    return s, 0
   for index, item in enumerate(imtiau):
     if item in s:
       resultarr.append((hau[index%6], index))
@@ -45,7 +47,7 @@ def oann(s):
     s = s.replace(imtiau[position], imtiau[42])
   s = s.replace("oo", "o͘")
   s = re.sub(r'nn$', "ⁿ", s)
-  return s.lower(), tiau
+  return s, tiau
   
 def getMax(s):
   max = 0

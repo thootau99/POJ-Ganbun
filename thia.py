@@ -16,6 +16,8 @@ def thiali(s):
   round2out = "" 
   round3out = ""
   finish = False
+  if s == None:
+    return "", "", "", "", 0
   for i in chuim:
     s = ina.split(i, 1)
     if len(s) == 2:
