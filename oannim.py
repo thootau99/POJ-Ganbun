@@ -8,7 +8,8 @@ def oann(s):
     hoo = int(s[-1])
     s = s.lower()
     s = s.replace("oo", "o͘")
-    s = re.sub(r'nn$', "ⁿ", s)
+    s = re.sub(r'nn$|nnh$', "ⁿ", s)
+    s = re.sub(r'nnh$', "ⁿh", s)
 
     return s.lower()[0:-1], hoo
   except:
@@ -47,6 +48,7 @@ def oann(s):
     s = s.replace(imtiau[position], imtiau[42])
   s = s.replace("oo", "o͘")
   s = re.sub(r'nn$', "ⁿ", s)
+  s = re.sub(r'nnh$', "ⁿh", s)
   return s, tiau
   
 def getMax(s):

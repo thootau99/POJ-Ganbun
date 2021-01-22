@@ -13,12 +13,14 @@ with open("output.txt", encoding="utf-8", mode='w') as f:
       line = line.split('\t')
       out = line[0]
       if p.fullmatch(out) == None:
-        if len(line[1].split(" ")) > 1:
+        result, status = input(out)
+        if status != False:
+          line[0] = result
+          if line[-1] == "0\n":
+            line[-1] = "\n"
+        else:
           continue
-        line[0] = input(out)
+      f.write('\t'.join(line))
         # print(line)
-        if line[-1] == "0\n":
-          line[-1] = "\n"
-        line.reverse()
-        f.write('\t'.join(line))
+        
         
