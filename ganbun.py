@@ -19,6 +19,7 @@ def input(s):
       boe_ganbun = ["ㅂ", "ㄷ", "ㄱ", "ㅅ", "ㅁ", "ㄴ", "ㅇ", "\u309A", "ㅅ\u309A", "ㅅ\u309A"]
       hau = ["₀","₁","₂","₃","₄","₅","₆","₇", "₈", "₉"]
       phinnPhantoan = False
+      nghmhPhantoan = False
       # print(thiali("chiann"))
       (chiap_chuim, chiap_hophak, chiap_booim, chiap_boe, chiap_sianntiau) = thiali(item)
       # print("1."+chiap_chuim, "2."+chiap_hophak, "3."+chiap_booim, "4."+chiap_boe, chiap_sianntiau)
@@ -41,15 +42,25 @@ def input(s):
           temp = "ㅑㄽ\u309A"
         result.append(temp)
       if chiap_booim != "":
-        if chiap_hophak == "" and chiap_boe == "" and (chiap_booim == "m" or chiap_booim == "ng"):
+        ngh = chiap_booim + chiap_boe == "ngh"
+        mh = chiap_booim + chiap_boe == "mh"
+        # print(mh)
+        if chiap_hophak == "" and chiap_boe == "" and (chiap_booim == "m" or chiap_booim == "ng") and not ngh:
           result.append("ᅳ")
           result.append(booim_ganbun[booim.index(chiap_booim)])
 
           pass
-        elif chiap_hophak == "" and chiap_boe == "h" and (chiap_booim == "m" or chiap_booim == "ng"):
+        elif ngh:
+          nghmhPhantoan = True
+          result.append("ᅴ")
+          result.append("ㅅ")
+        elif mh:
+          nghmhPhantoan = True
+          result.append("ᅴ")
+          result.append("ㅁ")
+        elif chiap_hophak == "" and chiap_boe == "h" and (chiap_booim == "m" or chiap_booim == "ng") and not ngh:
           result.append("ᅳ")
           result.append(booim_ganbun[booim.index(chiap_booim)])
-
           pass
         elif chiap_booim == "o" and chiap_boe != "":
           result.append("ㅗ")
@@ -64,8 +75,12 @@ def input(s):
           if chiap_boe == "":
             result.append("\u309A")
           phinnPhantoan = True
+
+      
       if chiap_boe != "":
-        if chiap_hophak == "" and chiap_booim == "":
+        if nghmhPhantoan:
+          pass
+        elif chiap_hophak == "" and chiap_booim == "":
           result.append("ᅳ")
         elif chiap_hophak == "au" and chiap_boe == "h":
           pass
@@ -83,9 +98,12 @@ def input(s):
         result.append("\u3099")
       __s = jamotools.join_jamos(result)
       # print(__s, item)
-    
+      # print(result)
       if __s != "ㅇ":
-        if chiap_sianntiau == 4 or chiap_sianntiau == 8:
+        if (len(__s) != 1 and (__s[-1] != "\u309A" and __s[-1] != "\u3099")):
+          back.append(item)
+          convert_status = False
+        elif chiap_sianntiau == 4 or chiap_sianntiau == 8:
           if chiap_boe == "":
             back.append(item)
             convert_status = False
@@ -99,4 +117,4 @@ def input(s):
           convert_status = False
   return ''.join(back), convert_status
 
-print(input("iong"))
+print(input("ji̍t"))

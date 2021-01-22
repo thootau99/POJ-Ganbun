@@ -23,9 +23,8 @@ def thiali(s):
 
     if len(s) == 2:
       if s[0] == "":
-
         if s[1] in imchiap:
-          
+
           chuim_output = i
           roundout = s[1]
 
