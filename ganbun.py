@@ -99,4 +99,4 @@ def input(s):
           convert_status = False
   return ''.join(back), convert_status
 
-print(input("te̍k-pia̍t"))
+print(input("iong"))

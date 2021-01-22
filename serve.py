@@ -10,6 +10,7 @@ def index():
 
 @app.route("/chhoe")
 def chhoe():
-    return input(request.args.get('bun'))
+    result, _ = input(request.args.get('bun'))
+    return result
 
 if __name__ == '__main__': app.run(debug=True)
