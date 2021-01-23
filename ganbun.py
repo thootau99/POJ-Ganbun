@@ -52,12 +52,12 @@ def input(s):
           pass
         elif ngh:
           nghmhPhantoan = True
-          result.append("ᅴ")
-          result.append("ㅅ")
+          result.append("ㅡ")
+          result.append("ᇱ")
         elif mh:
           nghmhPhantoan = True
-          result.append("ᅴ")
-          result.append("ㅁ")
+          result.append("ㅡ")
+          result.append("ᇝ")
         elif chiap_hophak == "" and chiap_boe == "h" and (chiap_booim == "m" or chiap_booim == "ng") and not ngh:
           result.append("ᅳ")
           result.append(booim_ganbun[booim.index(chiap_booim)])
@@ -101,8 +101,11 @@ def input(s):
       # print(result)
       if __s != "ㅇ":
         if (len(__s) != 1 and (__s[-1] != "\u309A" and __s[-1] != "\u3099")):
-          back.append(item)
-          convert_status = False
+          if ngh or mh:
+            back.append(__s+hau[chiap_sianntiau])
+          else:
+            back.append(item)
+            convert_status = False
         elif chiap_sianntiau == 4 or chiap_sianntiau == 8:
           if chiap_boe == "":
             back.append(item)
@@ -117,4 +120,4 @@ def input(s):
           convert_status = False
   return ''.join(back), convert_status
 
-print(input("ji̍t"))
+# print(input("cngh"))
