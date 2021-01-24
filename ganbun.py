@@ -120,8 +120,4 @@ def input(s):
           convert_status = False
   return ''.join(back), convert_status
 
-<<<<<<< HEAD
 print(input("leh"))
-=======
-# print(input("cngh"))
->>>>>>> 071a73d2e9b3039807ea497ce18ad2dd9624def7
