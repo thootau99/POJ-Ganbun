@@ -30,7 +30,7 @@ def input(s):
         
       if chiap_hophak != "":
         temp = hophakbooim_ganbun[hophakbooim.index(chiap_hophak)]
-        if chiap_hophak == "io" and (chiap_boe != "" or chiap_booim == "ng"):
+        if chiap_hophak == "io" and (chiap_boe != "" or chiap_booim == "ng") and chiap_boe != "h":
           temp = "ㅛ"
         elif chiap_hophak == "au" and chiap_boe == "h":
           temp = "ㅏㄽ"
@@ -120,4 +120,4 @@ def input(s):
           convert_status = False
   return ''.join(back), convert_status
 
-print(input("leh"))
+print(input("ioh"))

@@ -8,7 +8,7 @@ p = regex.compile(r'\p{Script=Han}+')
 
 # Strips the newline character
 with open("output.txt", encoding="utf-8", mode='w') as f:
-    
+
   for line in Lines:
       line = line.split('\t')
       out = line[0]
