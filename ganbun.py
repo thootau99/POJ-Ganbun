@@ -9,7 +9,7 @@ def input(s):
     _s = re.split(r'--|-|‑|([\u2E80-\u2FDF\u3005-\u3007\u3400-\u4DBF\u4E00-\u9FFF\uF900-\uFAFF\U00020000-\U0002EBEF]+)|\?|\!|\.|\,|，|。', _t_item)
     for item in _s:
       chuim = ["", "m", "n", "ng", "p", "b", "t", "k", "g", "ph", "th", "kh", "ch", "j", "chh", "s", "h", "l"]
-      chuim_ganbun = ["ㅇ", "ㅁ", "ㄴ", "ㄸ", "ㅂ", "ㅂ", "ㄷ", "ㄱ", "ㄱ", "ㅍ", "ㅌ", "ㅋ", "ㅈ", "ㅅ", "ㅊ", "ㅅ", "ㅎ", "ㄹ"]
+      chuim_ganbun = ["ㅇ", "ㅁ", "ㄴ", "ㅇ", "ㅂ", "ㅂ", "ㄷ", "ㄱ", "ㄱ", "ㅍ", "ㅌ", "ㅋ", "ㅈ", "ㅅ", "ㅊ", "ㅅ", "ㅎ", "ㄹ"]
       booim = ["i", "iⁿ", "u", "uⁿ", "e", "eⁿ", "o", "o͘", "oⁿ", "a", "aⁿ", "m", "ng", "eng"]
       booim_ganbun = ["ㅣ", "ㅣ", "ㅜ", "ㅜ", "ㅔ", "ㅔ", "ㅓ", "ㅗ", "ㅗ", "ㅏ", "ㅏ", "ㅁ", "ㅇ", "ㅣㅇ"]
       hophakbooim = ["ai", "au", "ia", "iu", "io", "io͘", "oa", "oe", "ui", "iau", "oai"]
@@ -72,6 +72,7 @@ def input(s):
           result.append(booim_ganbun[booim.index(chiap_booim)])
 
         if "ⁿ" in chiap_booim:
+          # print(chiap_booim)
           if chiap_boe == "":
             result.append("\u309A")
           phinnPhantoan = True
@@ -94,7 +95,7 @@ def input(s):
           result.append(boe_ganbun[boe.index(chiap_boe)])
         if phinnPhantoan and chiap_boe != "ⁿ" and chiap_boe != "hⁿ":
           result.append("\u309A")
-      if chiap_chuim == "b" or chiap_chuim == "g" or chiap_chuim == "j":
+      if chiap_chuim == "b" or chiap_chuim == "g" or chiap_chuim == "j" or chiap_chuim == "ng":
         result.append("\u3099")
       __s = jamotools.join_jamos(result)
       # print(__s, item)
@@ -120,4 +121,4 @@ def input(s):
           convert_status = False
   return ''.join(back), convert_status
 
-print(input("ioh"))
+print(input("nng"))
