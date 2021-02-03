@@ -6,12 +6,12 @@ hau = [1,2,3,5,7,8,9]
 def oann(s):
   try:
     hoo = int(s[-1])
+    s = s[0:-1]
     s = s.lower()
     s = s.replace("oo", "o͘")
     s = re.sub(r'nn$|nnh$', "ⁿ", s)
     s = re.sub(r'nnh$', "ⁿh", s)
-
-    return s.lower()[0:-1], hoo
+    return s.lower(), hoo
   except:
     pass
   global imtiau

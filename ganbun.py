@@ -121,4 +121,4 @@ def input(s):
           convert_status = False
   return ''.join(back), convert_status
 
-print(input("nng"))
+print(input("tiunn7"))

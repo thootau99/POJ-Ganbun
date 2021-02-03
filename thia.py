@@ -20,14 +20,13 @@ def thiali(s):
     return "", "", "", "", 0
   for i in chuim:
     s = ina.split(i, 1)
-
+    # print(s)
     if len(s) == 2:
       if s[0] == "":
         if s[1] in imchiap:
           chuim_output = i
           roundout = s[1]
         elif s[1] == "" and len(i) == 1:
-          
           if i != "m":
             chuim_output = i
             return chuim_output, "", "", "", 0
