@@ -2,7 +2,7 @@ from thia import thiali
 import jamotools
 import re
 #오ㅓㅇ₁
-def input(s):
+def input(s, b=False):
   _t = s.split(' ')
   back = []
   for _t_item in _t:
@@ -27,7 +27,8 @@ def input(s):
       convert_status = True
       phinn  = '\u309A'
       result.append(chuim_ganbun[chuim.index(chiap_chuim)])
-        
+      ngh = chiap_booim + chiap_boe == "ngh"
+      mh = chiap_booim + chiap_boe == "mh"
       if chiap_hophak != "":
         temp = hophakbooim_ganbun[hophakbooim.index(chiap_hophak)]
         if chiap_hophak == "io" and (chiap_boe != "" or chiap_booim == "ng") and chiap_boe != "h":
@@ -103,22 +104,31 @@ def input(s):
       if __s != "ㅇ":
         if (len(__s) != 1 and (__s[-1] != "\u309A" and __s[-1] != "\u3099")):
           if ngh or mh:
-            back.append(__s+hau[chiap_sianntiau])
+            if b:
+              back.append(__s+str(chiap_sianntiau))
+            else:
+              back.append(__s+hau[chiap_sianntiau])
           else:
             back.append(item)
             convert_status = False
         elif chiap_sianntiau == 4 or chiap_sianntiau == 8:
           if chiap_boe == "":
-            back.append(item)
+            back.append(__s+hau[chiap_sianntiau])
             convert_status = False
           else:
-            back.append(__s+hau[chiap_sianntiau])
+            if b:
+              back.append(__s+str(chiap_sianntiau))
+            else:
+              back.append(__s+hau[chiap_sianntiau])
         else:
-          back.append(__s+hau[chiap_sianntiau])
+          if b:
+            back.append(__s+str(chiap_sianntiau))
+          else:
+            back.append(__s+hau[chiap_sianntiau])
       else:
         if item != None:
           back.append(item)
           convert_status = False
   return ''.join(back), convert_status
 
-print(input("tiunn7"))
+print(input("chng4"))

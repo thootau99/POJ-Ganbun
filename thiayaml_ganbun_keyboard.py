@@ -24,6 +24,7 @@ with open("test.csv", encoding="utf-8", mode='w') as f:
         else:
           continue
         s = line[1][:-1]+ " " + line[0][:-1] + "\n"
+        print(s)
         f.write(s)
       else:
         result, status = input(out)
@@ -35,5 +36,7 @@ with open("test.csv", encoding="utf-8", mode='w') as f:
         else:
           continue
         s = line[1]+ " " + line[0] + "\n"
+        print(s)
+
         f.write(s)
         # print(line)

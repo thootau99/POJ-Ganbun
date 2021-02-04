@@ -4,19 +4,20 @@ imtiau = ["a", "á", "à", "â", "ā", "a̍", "i", "í", "ì", "î", "ī", "i̍"
 boe = {"p", "t", "k", "h"}
 hau = [1,2,3,5,7,8,9]
 def oann(s):
-  try:
-    hoo = int(s[-1])
-    s = s[0:-1]
-    s = s.lower()
-    s = s.replace("oo", "o͘")
-    s = re.sub(r'nn$|nnh$', "ⁿ", s)
-    s = re.sub(r'nnh$', "ⁿh", s)
-    return s.lower(), hoo
-  except:
-    pass
   global imtiau
   global hau
   resultarr = []
+  try:
+    hoo = int(s[-1])
+
+    s = s[0:-1]
+    s = s.lower()
+    s = s.replace("oo", "o͘")
+    s = re.sub(r'nnh$', "ⁿh", s)
+    s = re.sub(r'nn$|nnh$', "ⁿ", s)
+    return s.lower(), hoo
+  except:
+    pass
   try:
     s = s.lower()
   except:
@@ -47,8 +48,8 @@ def oann(s):
   elif choo == 7:
     s = s.replace(imtiau[position], imtiau[42])
   s = s.replace("oo", "o͘")
-  s = re.sub(r'nn$', "ⁿ", s)
   s = re.sub(r'nnh$', "ⁿh", s)
+  s = re.sub(r'nn$', "ⁿ", s)
   return s, tiau
   
 def getMax(s):
