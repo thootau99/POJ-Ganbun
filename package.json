@@ -1,0 +1,23 @@
+{
+  "name": "poj-ganbun",
+  "version": "1.0.0",
+  "description": "",
+  "main": "/static/js/code.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uahuynhh/POJ-Ganbun.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/uahuynhh/POJ-Ganbun/issues"
+  },
+  "homepage": "https://github.com/uahuynhh/POJ-Ganbun#readme",
+  "devDependencies": {
+    "webpack": "^5.24.3",
+    "webpack-cli": "^4.5.0"
+  }
+}
