@@ -3,7 +3,7 @@ import { useState } from 'react';
 import axios from 'axios'
 import './Search.scss';
  
-const URI = "http://localhost:5000/api/v1/chhoe";
+const URI = "https://ganbun.herokuapp.com/api/v1/chhoe";
 export function Search(props) {
   const [query, setQuery] = useState('隨拍字隨有通寫諺文!');
   return (
