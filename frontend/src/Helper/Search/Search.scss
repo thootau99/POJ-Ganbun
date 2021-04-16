@@ -4,13 +4,15 @@ $white: #ECECEC;
 $gray: #BFBFBF;
 
 .search_container {
-	margin: $base_padding;
+	width: 100%;
+	margin: $base_padding 0 $base_padding 0;
 	position: relative;
 	box-sizing: border-box;
 }
 
 .search_taigi_input {
 	display: block;
+	color: black;
 	margin: auto;
 	position: relative;
 	border: 2px $gray solid;

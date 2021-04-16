@@ -8,7 +8,7 @@ export function Search(props) {
   const [query, setQuery] = useState('隨拍字隨有通寫諺文!');
   return (
     <div className="search_container">
-    	<input className="search_taigi_input" onChange={async e => {
+    	<input className="search_taigi_input w-48 md:w-48 lg:w-64" onChange={async e => {
     		const newURI = URI + (`?bun=${e.target.value}`);
     		const res = await axios.get(newURI);
     		setQuery(res?.data)

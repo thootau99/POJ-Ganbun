@@ -1,7 +1,10 @@
 $white: #ECECEC;
+$base_padding: 1.5rem;
 
 .App {
-  padding: 5em;
+  padding: $base_padding;
+  width: 100%;
   text-align: center;
   color: $white;
+  position: relative;
 }
