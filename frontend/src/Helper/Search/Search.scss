@@ -1,0 +1,32 @@
+$base_padding: 1.5rem;
+$base_fontsize: 1.27rem;
+$white: #ECECEC;
+$gray: #BFBFBF;
+
+.search_container {
+	margin: $base_padding;
+	position: relative;
+	box-sizing: border-box;
+}
+
+.search_taigi_input {
+	display: block;
+	margin: auto;
+	position: relative;
+	border: 2px $gray solid;
+	box-shadow: 2px 2px rgba(0,0,0,0.2);
+	border-radius: 10px;
+	padding: $base_padding;
+	font-size: $base_fontsize;
+}
+
+.search_taigi_input:focus {
+	outline: none;
+}
+
+.search_query {
+	display: block;
+	margin: auto;
+	color: $white;
+	font-size: $base_fontsize;
+}

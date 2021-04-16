@@ -2,27 +2,28 @@ from thia import thiali
 import jamotools
 import re
 #오ㅓㅇ₁
+# TODO: Thia khui bo5 kang5 e5 li7 liam5 cho3 hoe2 e5?
 def input(s, b=False):
   _t = s.split(' ')
   back = []
+  chuim = ["", "m", "n", "ng", "p", "b", "t", "k", "g", "ph", "th", "kh", "ch", "j", "chh", "s", "h", "l"]
+  chuim_ganbun = ["ㅇ", "ㅁ", "ㄴ", "ㅇ", "ㅂ", "ㅂ", "ㄷ", "ㄱ", "ㄱ", "ㅍ", "ㅌ", "ㅋ", "ㅈ", "ㅅ", "ㅊ", "ㅅ", "ㅎ", "ㄹ"]
+  booim = ["i", "iⁿ", "u", "uⁿ", "e", "eⁿ", "o", "o͘", "oⁿ", "a", "aⁿ", "m", "ng", "eng"]
+  booim_ganbun = ["ㅣ", "ㅣ", "ㅜ", "ㅜ", "ㅔ", "ㅔ", "ㅓ", "ㅗ", "ㅗ", "ㅏ", "ㅏ", "ㅁ", "ㅇ", "ㅣㅇ"]
+  hophakbooim = ["ai", "au", "ia", "iu", "io", "io͘", "oa", "oe", "ui", "iau", "oai"]
+  hophakbooim_ganbun = ["ㅐ", "ㅏㄹ", "ㅑ", "ㅠ", "ㅕ", "ㅛ", "ㅘ", "ㅞ", "ㅟ", "ㅑㄹ", "ㅙ"]
+  imchiap = {"a","a","aⁿ","aⁿ","ah","ah","ahⁿ","ahⁿ","ai","ai","aiⁿ","aiⁿ","ak","ak","am","am","an","an","ang","ang","ap","ap","at","at","au","au","auh","auh","e","e","eⁿ","eⁿ","eh","eh","ehⁿ","ehⁿ","ek","ek","eng","eng","i","i","iⁿ","iⁿ","ia","ia","iaⁿ","iaⁿ","iah","iah","iahⁿ","iahⁿ","iak","iak","iam","iam","ian","ian","iang","iang","iap","iap","iat","iat","iau","iau","iauⁿ","iauⁿ","iauh","iauh","ih","ih","im","im","in","in","io","io","ioh","ioh","iok","iok","iong","iong","ip","ip","it","it","iu","iu","iuⁿ","iuⁿ","iuhⁿ","iuhⁿ","m","m","mh","mh","ng","ng","ngh","ngh","o","o","oⁿ","oⁿ","o͘","o͘","oa","oa","oaⁿ","oaⁿ","oah","oah","oai","oai","oaiⁿ","oaiⁿ","oan","oan","oang","oang","oat","oat","oe","oe","oeh","oeh","oh","oh","o͘h","o͘h","ohⁿ","ohⁿ","ok","ok","om","om","ong","ong","u","u","uh","uh","ui","ui","un","un","ut","ut"}
+  boe = ["p", "t", "k", "h", "m", "n", "ng", "ⁿ", "ⁿh", "hⁿ"]
+  boe_ganbun = ["ㅂ", "ㄷ", "ㄱ", "ㅅ", "ㅁ", "ㄴ", "ㅇ", "\u309A", "ㅅ\u309A", "ㅅ\u309A"]
+  hau = ["₀","₁","₂","₃","₄","₅","₆","₇", "₈", "₉"]
   for _t_item in _t:
     _s = re.split(r'--|-|‑|([\u2E80-\u2FDF\u3005-\u3007\u3400-\u4DBF\u4E00-\u9FFF\uF900-\uFAFF\U00020000-\U0002EBEF]+)|\?|\!|\.|\,|，|。', _t_item)
     for item in _s:
-      chuim = ["", "m", "n", "ng", "p", "b", "t", "k", "g", "ph", "th", "kh", "ch", "j", "chh", "s", "h", "l"]
-      chuim_ganbun = ["ㅇ", "ㅁ", "ㄴ", "ㅇ", "ㅂ", "ㅂ", "ㄷ", "ㄱ", "ㄱ", "ㅍ", "ㅌ", "ㅋ", "ㅈ", "ㅅ", "ㅊ", "ㅅ", "ㅎ", "ㄹ"]
-      booim = ["i", "iⁿ", "u", "uⁿ", "e", "eⁿ", "o", "o͘", "oⁿ", "a", "aⁿ", "m", "ng", "eng"]
-      booim_ganbun = ["ㅣ", "ㅣ", "ㅜ", "ㅜ", "ㅔ", "ㅔ", "ㅓ", "ㅗ", "ㅗ", "ㅏ", "ㅏ", "ㅁ", "ㅇ", "ㅣㅇ"]
-      hophakbooim = ["ai", "au", "ia", "iu", "io", "io͘", "oa", "oe", "ui", "iau", "oai"]
-      hophakbooim_ganbun = ["ㅐ", "ㅏㄹ", "ㅑ", "ㅠ", "ㅕ", "ㅛ", "ㅘ", "ㅞ", "ㅟ", "ㅑㄹ", "ㅙ"]
-      imchiap = {"a","a","aⁿ","aⁿ","ah","ah","ahⁿ","ahⁿ","ai","ai","aiⁿ","aiⁿ","ak","ak","am","am","an","an","ang","ang","ap","ap","at","at","au","au","auh","auh","e","e","eⁿ","eⁿ","eh","eh","ehⁿ","ehⁿ","ek","ek","eng","eng","i","i","iⁿ","iⁿ","ia","ia","iaⁿ","iaⁿ","iah","iah","iahⁿ","iahⁿ","iak","iak","iam","iam","ian","ian","iang","iang","iap","iap","iat","iat","iau","iau","iauⁿ","iauⁿ","iauh","iauh","ih","ih","im","im","in","in","io","io","ioh","ioh","iok","iok","iong","iong","ip","ip","it","it","iu","iu","iuⁿ","iuⁿ","iuhⁿ","iuhⁿ","m","m","mh","mh","ng","ng","ngh","ngh","o","o","oⁿ","oⁿ","o͘","o͘","oa","oa","oaⁿ","oaⁿ","oah","oah","oai","oai","oaiⁿ","oaiⁿ","oan","oan","oang","oang","oat","oat","oe","oe","oeh","oeh","oh","oh","o͘h","o͘h","ohⁿ","ohⁿ","ok","ok","om","om","ong","ong","u","u","uh","uh","ui","ui","un","un","ut","ut"}
-      boe = ["p", "t", "k", "h", "m", "n", "ng", "ⁿ", "ⁿh", "hⁿ"]
-      boe_ganbun = ["ㅂ", "ㄷ", "ㄱ", "ㅅ", "ㅁ", "ㄴ", "ㅇ", "\u309A", "ㅅ\u309A", "ㅅ\u309A"]
-      hau = ["₀","₁","₂","₃","₄","₅","₆","₇", "₈", "₉"]
+      
       phinnPhantoan = False
       nghmhPhantoan = False
       # print(thiali("chiann"))
       (chiap_chuim, chiap_hophak, chiap_booim, chiap_boe, chiap_sianntiau) = thiali(item)
-      # print("1."+chiap_chuim, "2."+chiap_hophak, "3."+chiap_booim, "4."+chiap_boe, chiap_sianntiau)
       result = []
       convert_status = True
       phinn  = '\u309A'
@@ -131,4 +132,4 @@ def input(s, b=False):
           convert_status = False
   return ''.join(back), convert_status
 
-print(input("chng4"))
+print(input("chngmng"))
