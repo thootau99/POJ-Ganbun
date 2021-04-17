@@ -8,3 +8,4 @@ peewee
 Werkzeug
 python-dotenv
 pymongo
+dnspython
