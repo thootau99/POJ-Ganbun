@@ -1,3 +1,4 @@
 node_modules/*
 venv/*
-ctdb
+ctdb/json
+ctdb/.env
