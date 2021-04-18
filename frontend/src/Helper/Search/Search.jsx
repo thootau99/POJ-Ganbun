@@ -20,7 +20,7 @@ export function Search(props) {
 
   return (
     <div className="search_container">
-    	<input className="search_taigi_input w-48 md:w-48 lg:w-64" value={handleInput} onChange={async e => {
+    	<input className="dark:bg-gray-800 dark:text-white search_taigi_input w-48 md:w-48 lg:w-64" value={handleInput} onChange={async e => {
         setHandleInput(e.target.value);
     	}}/>
     	<span className="search_query text-3xl">{query || "隨拍字隨有通寫諺文!"}</span>

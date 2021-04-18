@@ -12,11 +12,8 @@ $gray: #BFBFBF;
 
 .search_taigi_input {
 	display: block;
-	color: black;
 	margin: auto;
 	position: relative;
-	border: 2px $gray solid;
-	box-shadow: 2px 2px rgba(0,0,0,0.2);
 	border-radius: 10px;
 	padding: $base_padding;
 	font-size: $base_fontsize;

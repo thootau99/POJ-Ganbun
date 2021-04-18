@@ -44,17 +44,16 @@ function PageCountController(props) {
 	if (props.maxpage > 0) {
 		return (
 			<div className="flex justify-center m-4">
-				<button className="m-4 p-2 bg-white text-black rounded focus:ring-4 focus:ring-white-500 focus:ring-opacity-50" onClick={() => props.pageDispatch({type: 'previous'})}>téng</button>
+				<button className="m-4 p-2 dark:bg-gray-800 dark:text-white bg-white text-black rounded focus:ring-4 focus:ring-white-500 focus:ring-opacity-50" onClick={() => props.pageDispatch({type: 'previous'})}>{props.ganbun? '딩₂' : 'téng'}</button>
 				<div className="m-4">
-					<input className="inline-block bg-transparent hover:text-black transition hover:bg-white w-9 text-right" value={page} onChange={e => {
-						console.log(e.keyCode)
+					<input className="dark:hover:bg-gray-800 dark:hover:text-white inline-block bg-transparent hover:text-black transition hover:bg-white w-9 text-right" value={page} onChange={e => {
 						setPage(e.target?.value)
 					}} onBlur={() => {
 						props.pageDispatch({type: 'jump', page: page})
 					}} onKeyDown={handleKeyDown}/>
 					<span className="inline-block w-9">/{props.maxpage}</span>
 				</div>
-				<button className="m-4 p-2 bg-white text-black rounded focus:ring-4 focus:ring-white-500 focus:ring-opacity-50" onClick={() => props.pageDispatch({type: 'next'})}>āu</button>
+				<button className="dark:bg-gray-800 dark:text-white m-4 p-2 bg-white text-black rounded focus:ring-4 focus:ring-white-500 focus:ring-opacity-50" onClick={() => props.pageDispatch({type: 'next'})}>{props.ganbun? '알₇' : 'āu'}</button>
 			</div>
 		)
 	} else {
@@ -70,7 +69,6 @@ export function Dict(props) {
 	const [result, setResult] = useState([{id:1, poj_input:"Gan-bun", poj_unicode:"Gān-bûn", ganbun:"간゙₇분゙₅", descriptions_poj:`一種用간゙₇분゙₅來寫台語에₅書寫方式，詳細書寫規則請參考`, url:"https://drive.google.com/drive/folders/1Pov4YMnAdZ9t_cq8QO_Ji7jAyP0ENK9Q", hoabun: "諺文"}])
 	const [maxPage, setMaxPage] = useState(0)
 	const [ganbun, setGanbun] = useState(true)
-
 	const [page, pageDispatch] = useReducer((state, action) => {
 		switch(action.type) {
 			case 'previous':
@@ -114,9 +112,13 @@ export function Dict(props) {
 	return (
 		<div className="m-4">
 
-			<PageCountController pageDispatch={pageDispatch} maxpage={maxPage} current={page}/>
+			<PageCountController ganbun={ganbun} pageDispatch={pageDispatch} maxpage={maxPage} current={page}/>
 			
-			<button className="p-4 bg-yellow-500 focus:ring-4 focus:ring-yellow-500 focus:ring-opacity-50 rounded	" onClick={async () => {
+			<button className="m-4 p-4 dark:bg-yellow-800 bg-yellow-500 focus:ring-4 focus:ring-yellow-500 focus:ring-opacity-50 rounded" onClick={() => {
+				setGanbun(!ganbun)
+			}}>{ganbun ? '챧₄와゚₇POJ' : 'chhiat-ōaⁿ gān-bûn'}</button>
+
+			<button className="m-4 p-4 dark:bg-yellow-800 bg-yellow-500 focus:ring-4 focus:ring-yellow-500 focus:ring-opacity-50 rounded" onClick={async () => {
 				props.setIsLoading(true)
 				
 				const newURI = URI + (`?keyword=${key}`)
@@ -134,14 +136,12 @@ export function Dict(props) {
 				setResult([...withKai, ...withoutKai])
 				setMaxPage(Math.ceil([...withKai, ...withoutKai].length / ITEM))
 				pageDispatch({type: 'clear'})
-			}
-
-		}>Chhâ lī-tián</button>
+			}}>{ganbun ? '차₅리₇댠₂' : 'Chhâ lī-tián'}</button>
 			<ul className="flex flex-wrap">
 				<HandleResult ganbun={ganbun} page={page} result={result} />
 
 			</ul>
-			<PageCountController className="hidden md:block" pageDispatch={pageDispatch} maxpage={maxPage} current={page}/>
+			<PageCountController ganbun={ganbun} className="hidden md:block" pageDispatch={pageDispatch} maxpage={maxPage} current={page}/>
 			
 		</div>
 	)

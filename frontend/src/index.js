@@ -4,7 +4,7 @@ import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 document.title = "白話字좐₂키₃諺文 Conveter"	
-
+document.body.classList.add('dark:bg-gray-900')
 ReactDOM.render(
   <React.StrictMode>
     <App />
