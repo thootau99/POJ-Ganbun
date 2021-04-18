@@ -22,7 +22,9 @@ function HandleResult(props) {
 		const HOA = item.hoabun ?? item.english 
 		const HANLO = item.hanlo_taibun_poj ?? item.hanlo_taibun ?? item.hanji_taibun
 		const KAISOEH = item.hanlo_taibun_kaisoeh_poj ?? item.descriptions_poj
-		return <Card key={`${item.poj_input}${item.id}`} POJ={item.poj_unicode} KAISOEH={KAISOEH} HANLO={HANLO} HOA={HOA} />
+		const GANBUN = item.ganbun
+		const URL = item.url
+		return <Card key={`${item.poj_input}${item.id}`} ganbunMode={props.ganbun} GANBUN={GANBUN} URL={item.url} POJ={item.poj_unicode} KAISOEH={KAISOEH} HANLO={HANLO} HOA={HOA} />
 
 	})
 }
@@ -65,8 +67,10 @@ function PageCountController(props) {
 
 export function Dict(props) {
 	const [key, setKey] = useState(props.keyword)
-	const [result, setResult] = useState([])
+	const [result, setResult] = useState([{id:1, poj_input:"Gan-bun", poj_unicode:"Gān-bûn", ganbun:"간゙₇분゙₅", descriptions_poj:`一種用간゙₇분゙₅來寫台語에₅書寫方式，詳細書寫規則請參考`, url:"https://drive.google.com/drive/folders/1Pov4YMnAdZ9t_cq8QO_Ji7jAyP0ENK9Q", hoabun: "諺文"}])
 	const [maxPage, setMaxPage] = useState(0)
+	const [ganbun, setGanbun] = useState(true)
+
 	const [page, pageDispatch] = useReducer((state, action) => {
 		switch(action.type) {
 			case 'previous':
@@ -134,7 +138,7 @@ export function Dict(props) {
 
 		}>Chhâ lī-tián</button>
 			<ul className="flex flex-wrap">
-				<HandleResult page={page} result={result} />
+				<HandleResult ganbun={ganbun} page={page} result={result} />
 
 			</ul>
 			<PageCountController className="hidden md:block" pageDispatch={pageDispatch} maxpage={maxPage} current={page}/>

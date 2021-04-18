@@ -38,7 +38,7 @@ function App() {
     <div className="App">
     	<Loading loading={isLoading}></Loading>
       <h1 className="text-xl">白話字좐₂키₃諺文 Conveter</h1>
-      <Search name="test" strip={setStrip}/>
+      <Search strip={setStrip}/>
       <span>by 토₅달₇(塗豆)</span>
       <Dict setIsLoading={setIsLoading} isLoading={isLoading} keyword={strip}/>
 

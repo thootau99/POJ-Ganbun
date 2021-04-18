@@ -20,7 +20,7 @@ class MongoGo(object):
 	def find(self, keyword, blur=True):
 		all_result = []
 		if blur:
-			p = re.compile(keyword)
+			p = re.compile(keyword, re.IGNORECASE)
 		else:
 			p = keyword
 
@@ -43,10 +43,10 @@ def loadJson(jsonpath):
 
 # def init():
 # 	client = MongoGo()
-# 	for (_, _, filename) in walk('./json'):
+# 	for (_, _, filename) in walk('./ctdb/json'):
 # 		for fname in filename:
 # 			name = fname.split('_')[-1].split('.')[0]
-# 			fromjson = loadJson(f'./json/{fname}')
+# 			fromjson = loadJson(f'./ctdb/json/{fname}')
 # 			client.insert(fromjson, name)
 
 def main():
