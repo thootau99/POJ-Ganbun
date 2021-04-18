@@ -7,7 +7,9 @@ $main_color: #0F4C3A;
    v2.0 | 20110126
    License: none (public domain)
 */
-
+input:focus, button:focus{
+    outline: none;   
+}
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -56,4 +58,12 @@ table {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+html, body{
+	height: 100%;
+}
+
+#root {
+	height: 100%;
 }

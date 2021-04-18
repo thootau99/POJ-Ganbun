@@ -30,6 +30,7 @@ class MongoGo(object):
 			
 			for result in results:
 				result.pop('_id')
+				result['f'] = colname
 				all_result.append(result)
 
 		return all_result

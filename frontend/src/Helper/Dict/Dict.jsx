@@ -17,23 +17,41 @@ function HandleResult(props) {
 		} else {
 			innerPage = props.result.slice(PAGE, PAGE+20)
 		}
-		console.log(innerPage, props.result, PAGE)
 	}
 	return innerPage.map((item) => {
-		const HOA = item.hoabun == undefined ? item.english : item.hoabun
-		const HANLO = item.hanlo_taibun_poj ?? item.hanlo_taibun
+		const HOA = item.hoabun ?? item.english 
+		const HANLO = item.hanlo_taibun_poj ?? item.hanlo_taibun ?? item.hanji_taibun
 		const KAISOEH = item.hanlo_taibun_kaisoeh_poj ?? item.descriptions_poj
 		return <Card key={`${item.poj_input}${item.id}`} POJ={item.poj_unicode} KAISOEH={KAISOEH} HANLO={HANLO} HOA={HOA} />
+
 	})
 }
 
 
 function PageCountController(props) {
+	const [page, setPage] = useState(props.current?.page)
+	const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+    	props.pageDispatch({type: 'jump', page: page})
+    }
+  }
+
+	useEffect(() => {
+		setPage(props.current?.page)
+	},[props.current?.page])
 	if (props.maxpage > 0) {
 		return (
 			<div className="flex justify-center m-4">
 				<button className="m-4 p-2 bg-white text-black rounded focus:ring-4 focus:ring-white-500 focus:ring-opacity-50" onClick={() => props.pageDispatch({type: 'previous'})}>téng</button>
-				<p className="m-4 p-2">{props.current?.page}/{props.maxpage}</p>
+				<div className="m-4">
+					<input className="inline-block bg-transparent hover:text-black transition hover:bg-white w-9 text-right" value={page} onChange={e => {
+						console.log(e.keyCode)
+						setPage(e.target?.value)
+					}} onBlur={() => {
+						props.pageDispatch({type: 'jump', page: page})
+					}} onKeyDown={handleKeyDown}/>
+					<span className="inline-block w-9">/{props.maxpage}</span>
+				</div>
 				<button className="m-4 p-2 bg-white text-black rounded focus:ring-4 focus:ring-white-500 focus:ring-opacity-50" onClick={() => props.pageDispatch({type: 'next'})}>āu</button>
 			</div>
 		)
@@ -43,11 +61,12 @@ function PageCountController(props) {
 }
 
 
+
+
 export function Dict(props) {
 	const [key, setKey] = useState(props.keyword)
 	const [result, setResult] = useState([])
 	const [maxPage, setMaxPage] = useState(0)
-
 	const [page, pageDispatch] = useReducer((state, action) => {
 		switch(action.type) {
 			case 'previous':
@@ -56,12 +75,28 @@ export function Dict(props) {
 				} else {
 					return {page: state.page}
 				}
+				break;
 			case 'next':
 				if (state.page +1 <= maxPage) {
 					return {page: state.page + 1}
 				} else {
 					return {page: state.page}
 				}
+				break;
+			case 'jump':
+				try{
+					const setPage = parseInt(action.page)
+					if (setPage === 0 || setPage === undefined || setPage > maxPage) {
+						console.log("page error.")
+						return {page: state.page} 
+					} else if (setPage <= maxPage) {
+						return {page: setPage} 
+					}
+				} catch{
+					console.log("page error.")
+					return {page: action.page} 
+				}
+				
 			case 'clear':
 				return {page: 1}
 		}
@@ -69,17 +104,35 @@ export function Dict(props) {
 	useEffect(() => {
 		setKey(props.keyword)
 	}, [props.keyword])
+	useEffect(() => {
+		props.setIsLoading(false)
+	}, [result])
 	return (
 		<div className="m-4">
+
 			<PageCountController pageDispatch={pageDispatch} maxpage={maxPage} current={page}/>
 			
 			<button className="p-4 bg-yellow-500 focus:ring-4 focus:ring-yellow-500 focus:ring-opacity-50 rounded	" onClick={async () => {
+				props.setIsLoading(true)
+				
 				const newURI = URI + (`?keyword=${key}`)
 				const res = await axios.get(newURI)
-				setResult(res?.data)
-				setMaxPage(Math.ceil(res?.data?.length / ITEM))
+				let withKai = []
+				let withoutKai = []
+				res?.data?.forEach((item) => {
+					const KAISOEH = item.hanlo_taibun_kaisoeh_poj ?? item.descriptions_poj
+					if (KAISOEH === undefined) {
+						withoutKai = [...withoutKai, item]
+					} else {
+						withKai = [...withKai, item]
+					}
+				})
+				setResult([...withKai, ...withoutKai])
+				setMaxPage(Math.ceil([...withKai, ...withoutKai].length / ITEM))
 				pageDispatch({type: 'clear'})
-			}}>Chhâ lī-tián</button>
+			}
+
+		}>Chhâ lī-tián</button>
 			<ul className="flex flex-wrap">
 				<HandleResult page={page} result={result} />
 

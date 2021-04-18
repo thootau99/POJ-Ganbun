@@ -1,0 +1,11 @@
+$--tw-border-opacity: 1;
+.play {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 0.75rem 0 0.75rem 1rem;
+	border-color: transparent transparent transparent rgba(96, 103, 115, var(--tw-border-opacity));
+}
